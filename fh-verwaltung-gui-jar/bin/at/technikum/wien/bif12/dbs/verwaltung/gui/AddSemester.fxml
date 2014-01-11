@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.AddSemesterController">
+	<children>
+		<HBox>
+			<children>
+				<Label text="Token" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtToken">
+					<HBox.margin>
+						<Insets left="120.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Startdatum" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtStartDatum">
+					<HBox.margin>
+						<Insets left="93.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Enddatum" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtEndDatum">
+					<HBox.margin>
+						<Insets left="100.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox alignment="CENTER_LEFT" xmlns="http://javafx.com/javafx/8"
+			xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<Label fx:id="labelSave" text="Erfolgreich gespeichert"
+					visible="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+				</Label>
+				<Button fx:id="btnSave" alignment="CENTER_RIGHT"
+					contentDisplay="RIGHT" mnemonicParsing="false" onAction="#clickSave"
+					text="Speichern">
+					<HBox.margin>
+						<Insets left="90.0" />
+					</HBox.margin>
+				</Button>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+	</children>
+</VBox>
