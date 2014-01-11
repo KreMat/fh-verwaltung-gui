@@ -13,8 +13,8 @@ public class MainController {
 
 	private static final String FILENAME_ADD_LECTOR = "AddLector.fxml";
 	private static final String FILENAME_ADD_STUDENT = "AddStudent.fxml";
-	private static final String FILENAME_ADD_STUDIENGANG = null;
-	private static final String FILENAME_ADD_TEMPLATE = null;
+	private static final String FILENAME_ADD_STUDIENGANG = "AddStudiengang.fxml";
+	private static final String FILENAME_ADD_TEMPLATE = "AddTemplate.fxml";
 	private static final String FILENAME_ADD_SEMESTER = null;
 	private static final String FILENAME_LV_SEMESTER = null;
 	private static final String FILENAME_STUNDEN_EINTRAGEN = null;
