@@ -38,7 +38,7 @@ public class AddStudiengangController {
 		Studiengang s = new Studiengang();
 		s.setName(txtName.getText());
 		s.setDegree(txtDegree.getText());
-		s.setNr(txtNr.getText());
+		s.setNr(Long.parseLong(txtNr.getText()));
 		s.setLecturer_id(dropDownLektor.getSelectionModel().getSelectedItem()
 				.getId());
 		if (!dbHandler.addStudiengang(s)) {

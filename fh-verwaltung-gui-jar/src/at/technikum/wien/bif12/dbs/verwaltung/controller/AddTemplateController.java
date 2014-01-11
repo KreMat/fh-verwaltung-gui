@@ -42,8 +42,8 @@ public class AddTemplateController {
 		t.setStudiengang(dropDownStudiengang.getSelectionModel()
 				.getSelectedItem());
 		t.setToken(txtToken.getText());
-		t.setEcts(txtECTS.getText());
-		t.setParticipants(txtParticipants.getText());
+		t.setEcts(Double.parseDouble(txtECTS.getText()));
+		t.setParticipants(Long.parseLong(txtParticipants.getText()));
 		if (!dbHandler.addTemplate(t)) {
 			labelSave.setText("Fehler beim Speichern");
 		}

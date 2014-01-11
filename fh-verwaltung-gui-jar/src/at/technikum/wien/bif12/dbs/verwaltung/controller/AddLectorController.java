@@ -56,9 +56,10 @@ public class AddLectorController {
 		lektor.setToken(txtToken.getText());
 		lektor.setGehaltsklasse(dropDownGehaltsklasse.getSelectionModel()
 				.getSelectedItem());
-		if (dbHandler.addLektor(lektor) != -1) {
-			labelSave.setVisible(true);
+		if (!dbHandler.addLektor(lektor)) {
+			labelSave.setText("Fehler beim Speichern");
 		}
+		labelSave.setVisible(true);
 	}
 
 	/**
