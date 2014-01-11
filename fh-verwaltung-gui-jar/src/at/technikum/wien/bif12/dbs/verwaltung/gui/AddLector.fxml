@@ -1,24 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.AddLectorController">
 	<children>
-		<HBox prefHeight="100.0" prefWidth="200.0">
+		<HBox>
 			<children>
-				<VBox prefHeight="200.0" prefWidth="100.0">
-					<children>
-						<Label text="Label" />
-					</children>
-				</VBox>
-				<VBox prefHeight="200.0" prefWidth="100.0">
-					<children>
-						<TextField />
-						<TextField />
-					</children>
-				</VBox>
+				<Label text="Vorname" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtFirstname" layoutX="200.0">
+					<HBox.margin>
+						<Insets left="80.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<VBox.margin>
+				<Insets />
+			</VBox.margin>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Nachname" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtLastname">
+					<HBox.margin>
+						<Insets left="72.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Addresse" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtAddress">
+					<HBox.margin>
+						<Insets left="80.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="PLZ" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtZIP">
+					<HBox.margin>
+						<Insets left="110.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Telefonnummer" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtTel">
+					<HBox.margin>
+						<Insets left="45.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Email" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtEmail">
+					<HBox.margin>
+						<Insets left="100.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Token" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtToken">
+					<HBox.margin>
+						<Insets left="96.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Gehaltsklasse" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<ComboBox fx:id="dropDownGehaltsklasse">
+					<HBox.margin>
+						<Insets left="58.0" />
+					</HBox.margin>
+				</ComboBox>
+			</children>
+			<padding>
+				<Insets bottom="10.0" top="10.0" />
+			</padding>
+		</HBox>
+		<HBox alignment="CENTER_LEFT" xmlns="http://javafx.com/javafx/8"
+			xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<Label fx:id="labelSave" visible="false" text="Erfolgreich gespeichert"
+					xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+				</Label>
+				<Button fx:id="btnSave" alignment="CENTER_RIGHT"
+					contentDisplay="RIGHT" mnemonicParsing="false" onAction="#clickSave"
+					text="Speichern">
+					<HBox.margin>
+						<Insets left="90.0" />
+					</HBox.margin>
+				</Button>
 			</children>
 		</HBox>
 	</children>

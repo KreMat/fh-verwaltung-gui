@@ -4,10 +4,9 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.AddLectorController">
+	fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.AddStudentController">
 	<children>
 		<HBox>
 			<children>
@@ -111,9 +110,9 @@
 		</HBox>
 		<HBox>
 			<children>
-				<Label text="Gehaltsklasse" xmlns="http://javafx.com/javafx/8"
+				<Label text="Studiengang" xmlns="http://javafx.com/javafx/8"
 					xmlns:fx="http://javafx.com/fxml/1" />
-				<ComboBox fx:id="dropDownGehaltsklasse">
+				<ComboBox fx:id="dropDownStudiengang">
 					<HBox.margin>
 						<Insets left="58.0" />
 					</HBox.margin>

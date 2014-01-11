@@ -2,9 +2,6 @@ package at.technikum.wien.bif12.dbs.verwaltung.controller;
 
 import java.io.IOException;
 
-import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
-import at.technikum.wien.bif12.dbs.verwaltung.dao.mock.DatabaseHandlerMock;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +12,7 @@ import javafx.scene.layout.VBox;
 public class MainController {
 
 	private static final String FILENAME_ADD_LECTOR = "AddLector.fxml";
-	private static final String FILENAME_ADD_STUDENT = null;
+	private static final String FILENAME_ADD_STUDENT = "AddStudent.fxml";
 	private static final String FILENAME_ADD_STUDIENGANG = null;
 	private static final String FILENAME_ADD_TEMPLATE = null;
 	private static final String FILENAME_ADD_SEMESTER = null;
@@ -68,8 +65,6 @@ public class MainController {
 
 	@FXML
 	void clickAddLektor(ActionEvent event) {
-		DatabaseHandler handler = new DatabaseHandlerMock();
-		System.out.println("LektorId: " + handler.addLektor(null));
 		loadContent(FILENAME_ADD_LECTOR);
 	}
 
@@ -128,11 +123,16 @@ public class MainController {
 		loadContent(FILENAME_STUNDEN_EINTRAGEN);
 	}
 
+	@FXML
+	void closeButtonAction(ActionEvent event) {
+		System.exit(0);
+	}
+
 	private void loadContent(String filename) {
 		Parent root;
 		try {
-			root = FXMLLoader
-					.load(getClass().getResource("/at/technikum/wien/bif12/dbs/verwaltung/gui/" + filename));
+			root = FXMLLoader.load(getClass().getResource(
+					"/at/technikum/wien/bif12/dbs/verwaltung/gui/" + filename));
 		} catch (IOException e) {
 			e.printStackTrace();
 			return;
