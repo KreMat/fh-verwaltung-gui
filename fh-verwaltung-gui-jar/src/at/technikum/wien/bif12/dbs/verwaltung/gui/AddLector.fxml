@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+	<children>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<VBox prefHeight="200.0" prefWidth="100.0">
+					<children>
+						<Label text="Label" />
+					</children>
+				</VBox>
+				<VBox prefHeight="200.0" prefWidth="100.0">
+					<children>
+						<TextField />
+						<TextField />
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+	</children>
+</VBox>
