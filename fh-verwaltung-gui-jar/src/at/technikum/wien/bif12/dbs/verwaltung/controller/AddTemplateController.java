@@ -4,13 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
+import at.technikum.wien.bif12.dbs.verwaltung.entities.Studiengang;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Template;
 import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
-public class AddTemplateController {
+public class AddTemplateController extends AbstractController {
 
 	private DatabaseHandler dbHandler;
 
@@ -27,10 +27,7 @@ public class AddTemplateController {
 	private TextField txtECTS;
 
 	@FXML
-	private Label labelSave;
-
-	@FXML
-	private ComboBox<String> dropDownStudiengang;
+	private ComboBox<Studiengang> dropDownStudiengang;
 
 	@FXML
 	private TextField txtParticipants;
@@ -39,15 +36,12 @@ public class AddTemplateController {
 	void clickSave(ActionEvent event) {
 		Template t = new Template();
 		t.setName(txtName.getText());
-		t.setStudiengang(dropDownStudiengang.getSelectionModel()
-				.getSelectedItem());
+		t.setCourseOfStudiesId(dropDownStudiengang.getSelectionModel()
+				.getSelectedItem().getId());
 		t.setToken(txtToken.getText());
 		t.setEcts(Double.parseDouble(txtECTS.getText()));
 		t.setParticipants(Long.parseLong(txtParticipants.getText()));
-		if (!dbHandler.addTemplate(t)) {
-			labelSave.setText("Fehler beim Speichern");
-		}
-		labelSave.setVisible(true);
+		handleResult(dbHandler.addTemplate(t));
 	}
 
 	/**

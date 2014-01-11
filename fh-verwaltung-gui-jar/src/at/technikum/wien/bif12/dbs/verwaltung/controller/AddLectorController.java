@@ -4,13 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Lektor;
 import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
-public class AddLectorController {
+public class AddLectorController extends AbstractController {
 
 	private DatabaseHandler dbHandler;
 
@@ -25,9 +24,6 @@ public class AddLectorController {
 
 	@FXML
 	private TextField txtAddress;
-
-	@FXML
-	private Label labelSave;
 
 	@FXML
 	private TextField txtLastname;
@@ -56,10 +52,7 @@ public class AddLectorController {
 		lektor.setToken(txtToken.getText());
 		lektor.setGehaltsklasse(dropDownGehaltsklasse.getSelectionModel()
 				.getSelectedItem());
-		if (!dbHandler.addLektor(lektor)) {
-			labelSave.setText("Fehler beim Speichern");
-		}
-		labelSave.setVisible(true);
+		handleResult(dbHandler.addLektor(lektor));
 	}
 
 	/**

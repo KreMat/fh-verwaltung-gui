@@ -8,9 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Student;
+import at.technikum.wien.bif12.dbs.verwaltung.entities.Studiengang;
 import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
-public class AddStudentController {
+public class AddStudentController extends AbstractController {
 
 	private DatabaseHandler dbHandler;
 
@@ -27,9 +28,6 @@ public class AddStudentController {
 	private TextField txtAddress;
 
 	@FXML
-	private Label labelSave;
-
-	@FXML
 	private TextField txtLastname;
 
 	@FXML
@@ -42,7 +40,7 @@ public class AddStudentController {
 	private TextField txtFirstname;
 
 	@FXML
-	private ComboBox<String> dropDownStudiengang;
+	private ComboBox<Studiengang> dropDownStudiengang;
 
 	@FXML
 	void clickSave(ActionEvent event) {
@@ -54,12 +52,9 @@ public class AddStudentController {
 		student.setTelefon(txtTel.getText());
 		student.setEmail(txtEmail.getText());
 		student.setToken(txtToken.getText());
-		student.setCourse_of_studies_name(dropDownStudiengang
-				.getSelectionModel().getSelectedItem());
-		if (!dbHandler.addStudent(student)) {
-			labelSave.setText("Fehler beim Speichern");
-		}
-		labelSave.setVisible(true);
+		student.setStudiengangId(dropDownStudiengang.getSelectionModel()
+				.getSelectedItem().getId());
+		handleResult(dbHandler.addStudent(student));
 	}
 
 	/**

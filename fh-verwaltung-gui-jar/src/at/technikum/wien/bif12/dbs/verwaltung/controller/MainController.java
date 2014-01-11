@@ -16,7 +16,7 @@ public class MainController {
 	private static final String FILENAME_ADD_STUDIENGANG = "AddStudiengang.fxml";
 	private static final String FILENAME_ADD_TEMPLATE = "AddTemplate.fxml";
 	private static final String FILENAME_ADD_SEMESTER = "AddSemester.fxml";
-	private static final String FILENAME_LV_SEMESTER = null;
+	private static final String FILENAME_ADD_LV = "AddLV.fxml";
 	private static final String FILENAME_STUNDEN_EINTRAGEN = null;
 	private static final String FILENAME_NOTEN_EINTRAGEN = null;
 	private static final String FILENAME_ZEUGNIS_GENERIEREN = null;
@@ -40,7 +40,7 @@ public class MainController {
 	private Button buttonShowStundenplan;
 
 	@FXML
-	private Button buttonLVSem;
+	private Button buttonAddLV;
 
 	@FXML
 	private Button buttonAddLector;
@@ -69,8 +69,8 @@ public class MainController {
 	}
 
 	@FXML
-	void clickLVSemester(ActionEvent event) {
-		loadContent(FILENAME_LV_SEMESTER);
+	void clickAddLV(ActionEvent event) {
+		loadContent(FILENAME_ADD_LV);
 	}
 
 	@FXML

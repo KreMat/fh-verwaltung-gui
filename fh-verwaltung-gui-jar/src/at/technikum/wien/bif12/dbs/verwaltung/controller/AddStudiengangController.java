@@ -11,7 +11,7 @@ import at.technikum.wien.bif12.dbs.verwaltung.entities.Lektor;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Studiengang;
 import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
-public class AddStudiengangController {
+public class AddStudiengangController extends AbstractController {
 
 	private DatabaseHandler dbHandler;
 
@@ -23,9 +23,6 @@ public class AddStudiengangController {
 
 	@FXML
 	private TextField txtDegree;
-
-	@FXML
-	private Label labelSave;
 
 	@FXML
 	private ComboBox<Lektor> dropDownLektor;
@@ -41,10 +38,7 @@ public class AddStudiengangController {
 		s.setNr(Long.parseLong(txtNr.getText()));
 		s.setLecturer_id(dropDownLektor.getSelectionModel().getSelectedItem()
 				.getId());
-		if (!dbHandler.addStudiengang(s)) {
-			labelSave.setText("Fehler beim Speichern!");
-		}
-		labelSave.setVisible(true);
+		handleResult(dbHandler.addStudiengang(s));
 	}
 
 	/**
