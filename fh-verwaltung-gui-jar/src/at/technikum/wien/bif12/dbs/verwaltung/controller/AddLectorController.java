@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Lektor;
@@ -41,6 +42,9 @@ public class AddLectorController extends AbstractController {
 	private TextField txtFirstname;
 
 	@FXML
+	private Label labelSave;
+
+	@FXML
 	void clickSave(ActionEvent event) {
 		Lektor lektor = new Lektor();
 		lektor.setFirstname(txtFirstname.getText());
@@ -52,7 +56,7 @@ public class AddLectorController extends AbstractController {
 		lektor.setToken(txtToken.getText());
 		lektor.setGehaltsklasse(dropDownGehaltsklasse.getSelectionModel()
 				.getSelectedItem());
-		handleResult(dbHandler.addLektor(lektor));
+		handleResult(dbHandler.addLektor(lektor), labelSave);
 	}
 
 	/**

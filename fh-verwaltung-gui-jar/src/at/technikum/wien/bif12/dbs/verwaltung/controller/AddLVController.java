@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Course;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Lektor;
@@ -32,6 +33,9 @@ public class AddLVController extends AbstractController {
 	private ComboBox<Template> dropDownTemplate;
 
 	@FXML
+	private Label labelSave;
+
+	@FXML
 	void clickSave(ActionEvent event) {
 		Course c = new Course();
 		c.setCourseOfStudiesId(dropDownStudiengang.getSelectionModel()
@@ -42,7 +46,7 @@ public class AddLVController extends AbstractController {
 				.getId());
 		c.setSemesterId(dropDownSemester.getSelectionModel().getSelectedItem()
 				.getId());
-		handleResult(dbHandler.addCourse(c));
+		handleResult(dbHandler.addCourse(c), labelSave);
 	}
 
 	/**

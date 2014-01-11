@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Studiengang;
@@ -33,6 +34,9 @@ public class AddTemplateController extends AbstractController {
 	private TextField txtParticipants;
 
 	@FXML
+	private Label labelSave;
+
+	@FXML
 	void clickSave(ActionEvent event) {
 		Template t = new Template();
 		t.setName(txtName.getText());
@@ -41,7 +45,7 @@ public class AddTemplateController extends AbstractController {
 		t.setToken(txtToken.getText());
 		t.setEcts(Double.parseDouble(txtECTS.getText()));
 		t.setParticipants(Long.parseLong(txtParticipants.getText()));
-		handleResult(dbHandler.addTemplate(t));
+		handleResult(dbHandler.addTemplate(t), labelSave);
 	}
 
 	/**

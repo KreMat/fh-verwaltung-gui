@@ -31,6 +31,9 @@ public class AddStudiengangController extends AbstractController {
 	private TextField txtNr;
 
 	@FXML
+	private Label labelSave;
+
+	@FXML
 	void clickSave(ActionEvent event) {
 		Studiengang s = new Studiengang();
 		s.setName(txtName.getText());
@@ -38,7 +41,7 @@ public class AddStudiengangController extends AbstractController {
 		s.setNr(Long.parseLong(txtNr.getText()));
 		s.setLecturer_id(dropDownLektor.getSelectionModel().getSelectedItem()
 				.getId());
-		handleResult(dbHandler.addStudiengang(s));
+		handleResult(dbHandler.addStudiengang(s), labelSave);
 	}
 
 	/**

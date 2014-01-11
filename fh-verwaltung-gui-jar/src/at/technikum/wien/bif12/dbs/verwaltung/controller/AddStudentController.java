@@ -43,6 +43,9 @@ public class AddStudentController extends AbstractController {
 	private ComboBox<Studiengang> dropDownStudiengang;
 
 	@FXML
+	private Label labelSave;
+
+	@FXML
 	void clickSave(ActionEvent event) {
 		Student student = new Student();
 		student.setFirstname(txtFirstname.getText());
@@ -54,7 +57,7 @@ public class AddStudentController extends AbstractController {
 		student.setToken(txtToken.getText());
 		student.setStudiengangId(dropDownStudiengang.getSelectionModel()
 				.getSelectedItem().getId());
-		handleResult(dbHandler.addStudent(student));
+		handleResult(dbHandler.addStudent(student), labelSave);
 	}
 
 	/**
