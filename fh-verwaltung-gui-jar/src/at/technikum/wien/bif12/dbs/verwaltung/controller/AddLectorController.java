@@ -7,8 +7,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
-import at.technikum.wien.bif12.dbs.verwaltung.dao.mock.DatabaseHandlerMock;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Lektor;
+import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
 public class AddLectorController {
 
@@ -68,7 +68,7 @@ public class AddLectorController {
 	 */
 	@FXML
 	private void initialize() {
-		dbHandler = new DatabaseHandlerMock();
+		dbHandler = DatabaseHandlerFactory.createDatabaseHandler();
 		dropDownGehaltsklasse.getItems().addAll(dbHandler.ladeGehaltsklassen());
 	}
 
