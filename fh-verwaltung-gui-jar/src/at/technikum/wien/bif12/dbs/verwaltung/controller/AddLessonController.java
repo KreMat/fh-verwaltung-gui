@@ -42,6 +42,7 @@ public class AddLessonController extends AbstractController {
 
 	@FXML
 	void onSemesterChanged(ActionEvent event) {
+		dropDownLV.getItems().clear();
 		dropDownLV.getItems().addAll(
 				dbHandler.ladeLvs(dropDownSemester.getSelectionModel()
 						.getSelectedItem().getId()));
@@ -53,7 +54,7 @@ public class AddLessonController extends AbstractController {
 		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyyHH:mm");
 		try {
 			l.setStartTime(format.parse(txtDatum.getText() + txtStart.getText()));
-			l.setEndTime(format.parse(txtDatum.getText() + txtStart.getText()));
+			l.setEndTime(format.parse(txtDatum.getText() + txtEnd.getText()));
 		} catch (ParseException e) {
 			showMessage(labelSave, "Bitte Datumsformat beachten!");
 			return;

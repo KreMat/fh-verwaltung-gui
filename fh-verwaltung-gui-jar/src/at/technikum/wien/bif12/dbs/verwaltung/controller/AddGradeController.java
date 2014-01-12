@@ -96,12 +96,13 @@ public class AddGradeController extends AbstractController {
 
 	@FXML
 	private TableColumn<Record, String> lastNameColumn;
-	
+
 	@FXML
 	private ComboBox<Semester> dropDownSemester;
 
 	@FXML
 	void onSemesterChanged(ActionEvent event) {
+		dropDownLV.getItems().clear();
 		dropDownLV.getItems().addAll(
 				dbHandler.ladeLvs(dropDownSemester.getSelectionModel()
 						.getSelectedItem().getId()));
@@ -148,6 +149,7 @@ public class AddGradeController extends AbstractController {
 	private void initialize() {
 		super.init();
 		dropDownLV.getItems().addAll(dbHandler.ladeAlleLvs());
+		dropDownSemester.getItems().addAll(dbHandler.ladeAlleSemester());
 
 		tableView.setEditable(true);
 		Callback<TableColumn<Record, Integer>, TableCell<Record, Integer>> cellFactory = new Callback<TableColumn<Record, Integer>, TableCell<Record, Integer>>() {

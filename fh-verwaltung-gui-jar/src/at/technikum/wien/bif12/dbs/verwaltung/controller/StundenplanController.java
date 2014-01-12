@@ -1,5 +1,6 @@
 package at.technikum.wien.bif12.dbs.verwaltung.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -108,8 +109,15 @@ public class StundenplanController extends AbstractController {
 				.getId();
 		String dayStart = txtStart.getText();
 		String dayEnd = txtEnde.getText();
-		List<NamedLesson> list = dbHandler.ladeStundenplan(studentId, dayStart,
-				dayEnd);
+		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+		List<NamedLesson> list;
+		try {
+			list = dbHandler.ladeStundenplan(studentId, format.parse(dayStart),
+					format.parse(dayEnd));
+		} catch (ParseException e) {
+			showMessage(labelSave, "Datumsforamt beachten!");
+			return;
+		}
 		tableView.setItems(mapRecord(list));
 	}
 

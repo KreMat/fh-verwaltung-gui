@@ -73,6 +73,7 @@ public class AnwesenheitslisteController extends AbstractController {
 
 	@FXML
 	void onSemesterChanged(ActionEvent event) {
+		dropDownLV.getItems().clear();
 		dropDownLV.getItems().addAll(
 				dbHandler.ladeLvs(dropDownSemester.getSelectionModel()
 						.getSelectedItem().getId()));
@@ -106,6 +107,7 @@ public class AnwesenheitslisteController extends AbstractController {
 	private void initialize() {
 		super.init();
 		dropDownLV.getItems().addAll(dbHandler.ladeAlleLvs());
+		dropDownSemester.getItems().addAll(dbHandler.ladeAlleSemester());
 
 		nameColumn
 				.setCellValueFactory(new PropertyValueFactory<Record, String>(

@@ -44,10 +44,6 @@ public class AssignFreifachController extends AbstractController {
 
 	@FXML
 	void semesterSelected(ActionEvent event) {
-		if (dropDownStudent.getSelectionModel().getSelectedItem() == null) {
-			showMessage(labelSave, "Bitte Semester auswählen!");
-			return;
-		}
 		dropDownFreifach.setItems(FXCollections.observableArrayList(dbHandler
 				.ladeFreifacher(dropDownSemester.getSelectionModel()
 						.getSelectedItem().getId())));

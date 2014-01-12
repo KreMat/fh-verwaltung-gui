@@ -1,5 +1,8 @@
 package at.technikum.wien.bif12.dbs.verwaltung.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -28,8 +31,14 @@ public class AddSemesterController extends AbstractController {
 	void clickSave(ActionEvent event) {
 		Semester semester = new Semester();
 		semester.setToken(txtToken.getText());
-		semester.setStart_day(txtStartDatum.getText());
-		semester.setEnd_day(txtEndDatum.getText());
+		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+		try {
+			semester.setStartDay(format.parse(txtStartDatum.getText()));
+			semester.setEndDay(format.parse(txtEndDatum.getText()));
+		} catch (ParseException e) {
+			showMessage(labelSave, "Bitte Datumsformat beachten!");
+			return;
+		}
 		handleResult(dbHandler.addSemester(semester), labelSave);
 	}
 
