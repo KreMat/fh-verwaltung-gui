@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Anwesenheitsliste;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Course;
+import at.technikum.wien.bif12.dbs.verwaltung.entities.Semester;
 
 public class AnwesenheitslisteController extends AbstractController {
 
@@ -66,6 +67,16 @@ public class AnwesenheitslisteController extends AbstractController {
 
 	@FXML
 	private Button btnGenerate;
+
+	@FXML
+	private ComboBox<Semester> dropDownSemester;
+
+	@FXML
+	void onSemesterChanged(ActionEvent event) {
+		dropDownLV.getItems().addAll(
+				dbHandler.ladeLvs(dropDownSemester.getSelectionModel()
+						.getSelectedItem().getId()));
+	}
 
 	@FXML
 	void onClickGenerate(ActionEvent event) {

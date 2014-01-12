@@ -1,5 +1,6 @@
 package at.technikum.wien.bif12.dbs.verwaltung.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -138,9 +139,10 @@ public class StundenplanController extends AbstractController {
 
 	private ObservableList<Record> mapRecord(List<NamedLesson> lessons) {
 		ObservableList<Record> result = FXCollections.observableArrayList();
+		SimpleDateFormat formater = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 		for (NamedLesson l : lessons) {
-			result.add(new Record(l.getCourseName(), l.getRoomName(), l
-					.getStart_time(), l.getEnd_time()));
+			result.add(new Record(l.getCourseName(), l.getRoomName(), formater
+					.format(l.getStartTime()), formater.format(l.getEndTime())));
 		}
 		return result;
 	}

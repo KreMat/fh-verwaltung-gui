@@ -6,7 +6,22 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.AnwesenheitslisteController">
-	<children>
+	<children><HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<children>
+<Label text="Semester" />
+<ComboBox fx:id="dropDownSemester" onAction="#onSemesterChanged" prefWidth="150.0">
+<HBox.margin>
+<Insets left="70.0" />
+</HBox.margin>
+</ComboBox>
+</children>
+<padding>
+<Insets top="10.0" />
+</padding>
+<VBox.margin>
+<Insets left="20.0" />
+</VBox.margin>
+</HBox>
 		<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 			<children>
 				<Label text="LV wählen" />

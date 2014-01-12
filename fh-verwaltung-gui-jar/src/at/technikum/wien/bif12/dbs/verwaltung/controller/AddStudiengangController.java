@@ -27,6 +27,9 @@ public class AddStudiengangController extends AbstractController {
 	private TextField txtNr;
 
 	@FXML
+	private TextField txtTeilnehmer;
+
+	@FXML
 	private Label labelSave;
 
 	@FXML
@@ -35,6 +38,7 @@ public class AddStudiengangController extends AbstractController {
 		s.setName(txtName.getText());
 		s.setDegree(txtDegree.getText());
 		s.setNr(Long.parseLong(txtNr.getText()));
+		s.setParticipants((Long.parseLong(txtTeilnehmer.getText())));
 		if (dropDownLektor.getSelectionModel().getSelectedItem() == null) {
 			showMessage(labelSave, "Bitte Studiengangsleiter wählen");
 			return;

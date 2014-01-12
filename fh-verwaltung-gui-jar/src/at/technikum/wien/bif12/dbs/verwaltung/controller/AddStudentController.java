@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Student;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Studiengang;
+import at.technikum.wien.bif12.dbs.verwaltung.exceptions.GUIsqlException;
 
 public class AddStudentController extends AbstractController {
 
@@ -57,7 +58,11 @@ public class AddStudentController extends AbstractController {
 		}
 		student.setStudiengangName(dropDownStudiengang.getSelectionModel()
 				.getSelectedItem().getName());
-		handleResult(dbHandler.addStudent(student), labelSave);
+		try {
+			handleResult(dbHandler.addStudent(student), labelSave);
+		} catch (GUIsqlException e) {
+			showMessage(labelSave, e.getMessage());
+		}
 	}
 
 	/**

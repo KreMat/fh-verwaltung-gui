@@ -11,6 +11,8 @@ public class AbstractController {
 	protected void handleResult(boolean result, Label labelSave) {
 		if (!result) {
 			labelSave.setText("Fehler beim Speichern");
+		} else {
+			labelSave.setText("Erfolgreich gespeichert!");
 		}
 		labelSave.setVisible(true);
 	}

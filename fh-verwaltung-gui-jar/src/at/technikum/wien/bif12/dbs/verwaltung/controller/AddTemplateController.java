@@ -30,22 +30,30 @@ public class AddTemplateController extends AbstractController {
 	private TextField txtParticipants;
 
 	@FXML
+	private TextField txtSemester;
+
+	@FXML
 	private Label labelSave;
 
 	@FXML
 	void clickSave(ActionEvent event) {
-		Template t = new Template();
-		t.setName(txtName.getText());
-		if (dropDownStudiengang.getSelectionModel().getSelectedItem() == null) {
-			showMessage(labelSave, "Bitte Studiengang wählen!");
-			return;
+		try {
+			Template t = new Template();
+			t.setName(txtName.getText());
+			if (dropDownStudiengang.getSelectionModel().getSelectedItem() == null) {
+				showMessage(labelSave, "Bitte Studiengang wählen!");
+				return;
+			}
+			t.setCourseOfStudiesId(dropDownStudiengang.getSelectionModel()
+					.getSelectedItem().getId());
+			t.setToken(txtToken.getText());
+			t.setEcts(Double.parseDouble(txtECTS.getText()));
+			t.setParticipants(Long.parseLong(txtParticipants.getText()));
+			t.setSemester(Long.parseLong(txtSemester.getText()));
+			handleResult(dbHandler.addTemplate(t), labelSave);
+		} catch (Exception e) {
+			showMessage(labelSave, "Bitte Formate beachten!");
 		}
-		t.setCourseOfStudiesId(dropDownStudiengang.getSelectionModel()
-				.getSelectedItem().getId());
-		t.setToken(txtToken.getText());
-		t.setEcts(Double.parseDouble(txtECTS.getText()));
-		t.setParticipants(Long.parseLong(txtParticipants.getText()));
-		handleResult(dbHandler.addTemplate(t), labelSave);
 	}
 
 	/**

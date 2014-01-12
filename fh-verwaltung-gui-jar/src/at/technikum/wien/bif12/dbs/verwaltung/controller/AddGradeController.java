@@ -23,6 +23,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Course;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.GradedStudent;
+import at.technikum.wien.bif12.dbs.verwaltung.entities.Semester;
 
 public class AddGradeController extends AbstractController {
 
@@ -85,7 +86,7 @@ public class AddGradeController extends AbstractController {
 	private Label labelSave;
 
 	@FXML
-	private ComboBox<Course> dropDoanLV;
+	private ComboBox<Course> dropDownLV;
 
 	@FXML
 	private TableColumn<Record, Integer> gradeColumn;
@@ -95,14 +96,24 @@ public class AddGradeController extends AbstractController {
 
 	@FXML
 	private TableColumn<Record, String> lastNameColumn;
+	
+	@FXML
+	private ComboBox<Semester> dropDownSemester;
+
+	@FXML
+	void onSemesterChanged(ActionEvent event) {
+		dropDownLV.getItems().addAll(
+				dbHandler.ladeLvs(dropDownSemester.getSelectionModel()
+						.getSelectedItem().getId()));
+	}
 
 	@FXML
 	void clickSave(ActionEvent event) {
-		if (dropDoanLV.getSelectionModel().getSelectedItem() == null) {
+		if (dropDownLV.getSelectionModel().getSelectedItem() == null) {
 			showMessage(labelSave, "Bitte LV wählen");
 			return;
 		}
-		long courseId = dropDoanLV.getSelectionModel().getSelectedItem()
+		long courseId = dropDownLV.getSelectionModel().getSelectedItem()
 				.getId();
 		boolean success = true;
 		for (Record r : tableView.getItems()) {
@@ -120,11 +131,11 @@ public class AddGradeController extends AbstractController {
 
 	@FXML
 	void onLVchanged(ActionEvent event) {
-		if (dropDoanLV.getSelectionModel().getSelectedItem() == null) {
+		if (dropDownLV.getSelectionModel().getSelectedItem() == null) {
 			showMessage(labelSave, "Bitte LV wählen");
 			return;
 		}
-		long courseId = dropDoanLV.getSelectionModel().getSelectedItem()
+		long courseId = dropDownLV.getSelectionModel().getSelectedItem()
 				.getId();
 		tableView.setItems(mapRecord(dbHandler.ladeStudenten(courseId)));
 	}
@@ -136,7 +147,7 @@ public class AddGradeController extends AbstractController {
 	@FXML
 	private void initialize() {
 		super.init();
-		dropDoanLV.getItems().addAll(dbHandler.ladeAlleLvs());
+		dropDownLV.getItems().addAll(dbHandler.ladeAlleLvs());
 
 		tableView.setEditable(true);
 		Callback<TableColumn<Record, Integer>, TableCell<Record, Integer>> cellFactory = new Callback<TableColumn<Record, Integer>, TableCell<Record, Integer>>() {
