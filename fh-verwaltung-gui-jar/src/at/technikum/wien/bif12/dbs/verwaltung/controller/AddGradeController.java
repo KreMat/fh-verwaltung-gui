@@ -98,14 +98,20 @@ public class AddGradeController extends AbstractController {
 
 	@FXML
 	void clickSave(ActionEvent event) {
+		if (dropDoanLV.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte LV wählen");
+			return;
+		}
 		long courseId = dropDoanLV.getSelectionModel().getSelectedItem()
 				.getId();
 		boolean success = true;
 		for (Record r : tableView.getItems()) {
-			if (!dbHandler.registerGrade(r.getStudentId(), courseId,
-					r.getGrade())) {
-				success = false;
-				break;
+			if (r.getGrade() != null) {
+				if (!dbHandler.registerGrade(r.getStudentId(), courseId,
+						r.getGrade())) {
+					success = false;
+					break;
+				}
 			}
 		}
 		handleResult(success, labelSave);
@@ -114,6 +120,10 @@ public class AddGradeController extends AbstractController {
 
 	@FXML
 	void onLVchanged(ActionEvent event) {
+		if (dropDoanLV.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte LV wählen");
+			return;
+		}
 		long courseId = dropDoanLV.getSelectionModel().getSelectedItem()
 				.getId();
 		tableView.setItems(mapRecord(dbHandler.ladeStudenten(courseId)));

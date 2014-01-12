@@ -36,6 +36,10 @@ public class AddTemplateController extends AbstractController {
 	void clickSave(ActionEvent event) {
 		Template t = new Template();
 		t.setName(txtName.getText());
+		if (dropDownStudiengang.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte Studiengang wählen!");
+			return;
+		}
 		t.setCourseOfStudiesId(dropDownStudiengang.getSelectionModel()
 				.getSelectedItem().getId());
 		t.setToken(txtToken.getText());

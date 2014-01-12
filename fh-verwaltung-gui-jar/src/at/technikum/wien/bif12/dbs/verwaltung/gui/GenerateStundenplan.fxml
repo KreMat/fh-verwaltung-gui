@@ -65,7 +65,16 @@
 			<padding>
 				<Insets top="10.0" />
 			</padding>
-		</HBox>
+		</HBox><HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<padding>
+<Insets top="10.0" />
+</padding>
+<children><Label fx:id="labelSave" text="Stundenplan konnte nicht generiert werden!" visible="false">
+<HBox.margin>
+<Insets left="20.0" />
+</HBox.margin></Label>
+</children>
+</HBox>
 		<TableView fx:id="tableView" prefHeight="300.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml">
 			<columns>
 				<TableColumn fx:id="lVColumn" prefWidth="200" text="Lehrveranstaltung" />

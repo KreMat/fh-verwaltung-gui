@@ -6,9 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Lektor;
-import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
 public class AddLectorController extends AbstractController {
 
@@ -52,6 +50,10 @@ public class AddLectorController extends AbstractController {
 		lektor.setTelefon(txtTel.getText());
 		lektor.setEmail(txtEmail.getText());
 		lektor.setToken(txtToken.getText());
+		if (dropDownGehaltsklasse.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte Gehaltsklasse wählen");
+			return;
+		}
 		lektor.setGehaltsklasse(dropDownGehaltsklasse.getSelectionModel()
 				.getSelectedItem());
 		handleResult(dbHandler.addLektor(lektor), labelSave);

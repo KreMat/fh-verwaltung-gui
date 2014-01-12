@@ -5,13 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Course;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Lektor;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Semester;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Studiengang;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Template;
-import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
 public class AddLVController extends AbstractController {
 
@@ -36,6 +34,14 @@ public class AddLVController extends AbstractController {
 	@FXML
 	void clickSave(ActionEvent event) {
 		Course c = new Course();
+		if (dropDownStudiengang.getSelectionModel().getSelectedItem() == null
+				|| dropDownTemplate.getSelectionModel().getSelectedItem() == null
+				|| dropDoanLektor.getSelectionModel().getSelectedItem() == null
+				|| dropDownSemester.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte alle Felder auswählen");
+			return;
+		}
+
 		c.setCourseOfStudiesId(dropDownStudiengang.getSelectionModel()
 				.getSelectedItem().getId());
 		c.setCourseTemplateId(dropDownTemplate.getSelectionModel()

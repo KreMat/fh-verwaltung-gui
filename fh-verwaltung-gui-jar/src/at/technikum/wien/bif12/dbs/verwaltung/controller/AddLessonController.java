@@ -35,6 +35,14 @@ public class AddLessonController extends AbstractController {
 		Lesson l = new Lesson();
 		l.setStart_time(txtStart.getText());
 		l.setEnd_time(txtEnd.getText());
+		if (dropDownLV.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte LV wählen");
+			return;
+		}
+		if (dropDownRoom.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte Raum wählen");
+			return;
+		}
 		l.setCourse_id(dropDownLV.getSelectionModel().getSelectedItem().getId());
 		l.setRoom_id(dropDownRoom.getSelectionModel().getSelectedItem().getId());
 		handleResult(dbHandler.addLesson(l), labelSave);

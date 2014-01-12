@@ -51,8 +51,12 @@ public class AddStudentController extends AbstractController {
 		student.setTelefon(txtTel.getText());
 		student.setEmail(txtEmail.getText());
 		student.setToken(txtToken.getText());
-		student.setStudiengangId(dropDownStudiengang.getSelectionModel()
-				.getSelectedItem().getId());
+		if (dropDownStudiengang.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte Gehaltsklasse auswählen!");
+			return;
+		}
+		student.setStudiengangName(dropDownStudiengang.getSelectionModel()
+				.getSelectedItem().getName());
 		handleResult(dbHandler.addStudent(student), labelSave);
 	}
 

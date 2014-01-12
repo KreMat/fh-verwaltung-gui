@@ -29,6 +29,11 @@ public class AssignFreifachController extends AbstractController {
 
 	@FXML
 	void clickSave(ActionEvent event) {
+		if (dropDownStudent.getSelectionModel().getSelectedItem() == null
+				|| dropDownFreifach.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte alle DropDown befüllen!");
+			return;
+		}
 		long studentId = dropDownStudent.getSelectionModel().getSelectedItem()
 				.getId();
 		long courseId = dropDownFreifach.getSelectionModel().getSelectedItem()
@@ -39,6 +44,10 @@ public class AssignFreifachController extends AbstractController {
 
 	@FXML
 	void semesterSelected(ActionEvent event) {
+		if (dropDownStudent.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte Semester auswählen!");
+			return;
+		}
 		dropDownFreifach.setItems(FXCollections.observableArrayList(dbHandler
 				.ladeFreifacher(dropDownSemester.getSelectionModel()
 						.getSelectedItem().getId())));

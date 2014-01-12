@@ -53,6 +53,9 @@ public class AnwesenheitslisteController extends AbstractController {
 	private Label labelLV;
 
 	@FXML
+	private Label labelSave;
+
+	@FXML
 	private ComboBox<Course> dropDownLV;
 
 	@FXML
@@ -66,8 +69,19 @@ public class AnwesenheitslisteController extends AbstractController {
 
 	@FXML
 	void onClickGenerate(ActionEvent event) {
+		if (dropDownLV.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte LV wählen!");
+			return;
+		}
 		Anwesenheitsliste a = dbHandler.ladeAnwesenheitsliste(dropDownLV
 				.getSelectionModel().getSelectedItem().getId());
+
+		if (a == null) {
+			showMessage(labelSave,
+					"Anwesenheitsliste konnte nicht generiert werden!");
+			return;
+		}
+
 		tableView.setItems(mapRecord(a.getNames()));
 		labelLV.setText("Lehrveranstaltung: " + a.getLehrveranstaltung());
 		labelLV.setVisible(true);

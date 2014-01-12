@@ -83,12 +83,23 @@ public class CertificateController extends AbstractController {
 	private Label labelName;
 
 	@FXML
+	private Label labelSave;
+
+	@FXML
 	private TableColumn<Record, String> eCTSColumn;
 
 	@FXML
 	void onClickGenerate(ActionEvent event) {
+		if (dropDownStudent.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte Student wählen!");
+			return;
+		}
 		Zeugnis z = dbHandler.ladeZeugnis(dropDownStudent.getSelectionModel()
 				.getSelectedItem().getId(), txtSemester.getText());
+		if (z == null) {
+			showMessage(labelSave, "Zeugnis konnte nicht generiert werden!");
+			return;
+		}
 		labelName.setText(z.getFirstname() + " " + z.getLastname());
 		labelName.setVisible(true);
 		labelStudiengang.setText(z.getStudiengang());

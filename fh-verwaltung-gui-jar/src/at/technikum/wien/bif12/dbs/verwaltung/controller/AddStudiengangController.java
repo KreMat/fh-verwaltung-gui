@@ -35,6 +35,10 @@ public class AddStudiengangController extends AbstractController {
 		s.setName(txtName.getText());
 		s.setDegree(txtDegree.getText());
 		s.setNr(Long.parseLong(txtNr.getText()));
+		if (dropDownLektor.getSelectionModel().getSelectedItem() == null) {
+			showMessage(labelSave, "Bitte Studiengangsleiter wählen");
+			return;
+		}
 		s.setLecturer_id(dropDownLektor.getSelectionModel().getSelectedItem()
 				.getId());
 		handleResult(dbHandler.addStudiengang(s), labelSave);

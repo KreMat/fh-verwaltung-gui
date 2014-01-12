@@ -19,4 +19,9 @@ public class AbstractController {
 		dbHandler = DatabaseHandlerFactory.createDatabaseHandler();
 	}
 
+	protected void showMessage(Label labelSave, String text) {
+		labelSave.setText(text);
+		labelSave.setVisible(true);
+	}
+
 }
