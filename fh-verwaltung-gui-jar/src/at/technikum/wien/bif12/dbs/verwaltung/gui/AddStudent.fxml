@@ -5,13 +5,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.AddStudentController">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.AddStudentController">
 	<children>
 		<HBox>
 			<children>
-				<Label text="Vorname" xmlns="http://javafx.com/javafx/8"
-					xmlns:fx="http://javafx.com/fxml/1" />
+				<Label text="Vorname" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
 				<TextField fx:id="txtFirstname" layoutX="200.0">
 					<HBox.margin>
 						<Insets left="80.0" />
@@ -27,8 +25,7 @@
 		</HBox>
 		<HBox>
 			<children>
-				<Label text="Nachname" xmlns="http://javafx.com/javafx/8"
-					xmlns:fx="http://javafx.com/fxml/1" />
+				<Label text="Nachname" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
 				<TextField fx:id="txtLastname">
 					<HBox.margin>
 						<Insets left="72.0" />
@@ -41,8 +38,7 @@
 		</HBox>
 		<HBox>
 			<children>
-				<Label text="Addresse" xmlns="http://javafx.com/javafx/8"
-					xmlns:fx="http://javafx.com/fxml/1" />
+				<Label text="Addresse" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
 				<TextField fx:id="txtAddress">
 					<HBox.margin>
 						<Insets left="80.0" />
@@ -68,8 +64,7 @@
 		</HBox>
 		<HBox>
 			<children>
-				<Label text="Telefonnummer" xmlns="http://javafx.com/javafx/8"
-					xmlns:fx="http://javafx.com/fxml/1" />
+				<Label text="Telefonnummer" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
 				<TextField fx:id="txtTel">
 					<HBox.margin>
 						<Insets left="45.0" />
@@ -82,8 +77,7 @@
 		</HBox>
 		<HBox>
 			<children>
-				<Label text="Email" xmlns="http://javafx.com/javafx/8"
-					xmlns:fx="http://javafx.com/fxml/1" />
+				<Label text="Email" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
 				<TextField fx:id="txtEmail">
 					<HBox.margin>
 						<Insets left="100.0" />
@@ -96,8 +90,7 @@
 		</HBox>
 		<HBox>
 			<children>
-				<Label text="Token" xmlns="http://javafx.com/javafx/8"
-					xmlns:fx="http://javafx.com/fxml/1" />
+				<Label text="Token" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
 				<TextField fx:id="txtToken">
 					<HBox.margin>
 						<Insets left="96.0" />
@@ -110,8 +103,7 @@
 		</HBox>
 		<HBox>
 			<children>
-				<Label text="Studiengang" xmlns="http://javafx.com/javafx/8"
-					xmlns:fx="http://javafx.com/fxml/1" />
+				<Label text="Studiengang" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
 				<ComboBox fx:id="dropDownStudiengang">
 					<HBox.margin>
 						<Insets left="58.0" />
@@ -122,20 +114,18 @@
 				<Insets bottom="10.0" top="10.0" />
 			</padding>
 		</HBox>
-		<HBox alignment="CENTER_LEFT" xmlns="http://javafx.com/javafx/8"
-			xmlns:fx="http://javafx.com/fxml/1">
+		<HBox alignment="CENTER_LEFT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 			<children>
-				<Label fx:id="labelSave" visible="false" text="Erfolgreich gespeichert"
-					xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-				</Label>
-				<Button fx:id="btnSave" alignment="CENTER_RIGHT"
-					contentDisplay="RIGHT" mnemonicParsing="false" onAction="#clickSave"
-					text="Speichern">
+				<Button fx:id="btnSave" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#clickSave" text="Speichern">
 					<HBox.margin>
-						<Insets left="90.0" />
+						<Insets left="210.0" />
 					</HBox.margin>
 				</Button>
 			</children>
-		</HBox>
+		</HBox><HBox alignment="CENTER_LEFT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<children>
+<Label fx:id="labelSave" text="Erfolgreich gespeichert" visible="false" />
+</children>
+</HBox>
 	</children>
 </VBox>
