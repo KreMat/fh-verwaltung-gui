@@ -6,14 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Lektor;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Studiengang;
-import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
 public class AddStudiengangController extends AbstractController {
-
-	private DatabaseHandler dbHandler;
 
 	@FXML
 	private Button btnSave;
@@ -50,7 +46,7 @@ public class AddStudiengangController extends AbstractController {
 	 */
 	@FXML
 	private void initialize() {
-		dbHandler = DatabaseHandlerFactory.createDatabaseHandler();
+		super.init();
 		dropDownLektor.getItems().addAll(dbHandler.ladeAlleLektoren());
 	}
 

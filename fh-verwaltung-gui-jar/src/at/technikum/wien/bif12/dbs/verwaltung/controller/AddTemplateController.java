@@ -6,14 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Studiengang;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Template;
-import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
 public class AddTemplateController extends AbstractController {
-
-	private DatabaseHandler dbHandler;
 
 	@FXML
 	private TextField txtToken;
@@ -54,7 +50,7 @@ public class AddTemplateController extends AbstractController {
 	 */
 	@FXML
 	private void initialize() {
-		dbHandler = DatabaseHandlerFactory.createDatabaseHandler();
+		super.init();
 		dropDownStudiengang.getItems().addAll(dbHandler.ladeStudiengaenge());
 	}
 

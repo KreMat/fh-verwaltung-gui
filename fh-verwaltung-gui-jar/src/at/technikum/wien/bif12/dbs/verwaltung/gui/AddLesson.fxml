@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.AddLessonController">
+	<children>
+		<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<Label text="Raum wählen" />
+				<ComboBox fx:id="dropDownRoom" prefWidth="150.0">
+					<HBox.margin>
+						<Insets left="59.0" />
+					</HBox.margin>
+				</ComboBox>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="LV wählen" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<ComboBox fx:id="dropDownLV" prefWidth="150.0"
+					xmlns:fx="http://javafx.com/fxml">
+					<HBox.margin>
+						<Insets left="77.0" />
+					</HBox.margin>
+				</ComboBox>
+			</children>
+			<VBox.margin>
+				<Insets />
+			</VBox.margin>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Startzeit" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtStart">
+					<HBox.margin>
+						<Insets left="88.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox>
+			<children>
+				<Label text="Endzeit" xmlns="http://javafx.com/javafx/8"
+					xmlns:fx="http://javafx.com/fxml/1" />
+				<TextField fx:id="txtEnd">
+					<HBox.margin>
+						<Insets left="92.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox alignment="CENTER_LEFT" xmlns="http://javafx.com/javafx/8"
+			xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<Label fx:id="labelSave" text="Erfolgreich gespeichert"
+					visible="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+				</Label>
+				<Button fx:id="btnSave" alignment="CENTER_RIGHT"
+					contentDisplay="RIGHT" mnemonicParsing="false" onAction="#clickSave"
+					text="Speichern">
+					<HBox.margin>
+						<Insets left="90.0" />
+					</HBox.margin>
+				</Button>
+			</children>
+			<VBox.margin>
+				<Insets top="10.0" />
+			</VBox.margin>
+		</HBox>
+	</children>
+</VBox>

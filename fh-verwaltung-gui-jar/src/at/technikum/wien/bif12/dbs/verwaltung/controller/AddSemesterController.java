@@ -5,13 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import at.technikum.wien.bif12.dbs.verwaltung.dao.DatabaseHandler;
 import at.technikum.wien.bif12.dbs.verwaltung.entities.Semester;
-import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
 public class AddSemesterController extends AbstractController {
-
-	private DatabaseHandler dbHandler;
 
 	@FXML
 	private TextField txtToken;
@@ -24,7 +20,7 @@ public class AddSemesterController extends AbstractController {
 
 	@FXML
 	private TextField txtEndDatum;
-	
+
 	@FXML
 	private Label labelSave;
 
@@ -43,7 +39,7 @@ public class AddSemesterController extends AbstractController {
 	 */
 	@FXML
 	private void initialize() {
-		dbHandler = DatabaseHandlerFactory.createDatabaseHandler();
+		super.init();
 	}
 
 }

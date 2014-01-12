@@ -15,8 +15,6 @@ import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
 public class AddLVController extends AbstractController {
 
-	private DatabaseHandler dbHandler;
-
 	@FXML
 	private Button btnSave;
 
@@ -55,7 +53,7 @@ public class AddLVController extends AbstractController {
 	 */
 	@FXML
 	private void initialize() {
-		dbHandler = DatabaseHandlerFactory.createDatabaseHandler();
+		super.init();
 		dropDownSemester.getItems().addAll(dbHandler.ladeAlleSemester());
 		dropDownStudiengang.getItems().addAll(dbHandler.ladeStudiengaenge());
 		dropDoanLektor.getItems().addAll(dbHandler.ladeAlleLektoren());

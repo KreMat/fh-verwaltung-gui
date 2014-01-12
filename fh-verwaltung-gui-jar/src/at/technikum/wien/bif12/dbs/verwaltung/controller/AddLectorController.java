@@ -12,8 +12,6 @@ import at.technikum.wien.bif12.dbs.verwaltung.factory.DatabaseHandlerFactory;
 
 public class AddLectorController extends AbstractController {
 
-	private DatabaseHandler dbHandler;
-
 	@FXML
 	private TextField txtZIP;
 
@@ -65,7 +63,7 @@ public class AddLectorController extends AbstractController {
 	 */
 	@FXML
 	private void initialize() {
-		dbHandler = DatabaseHandlerFactory.createDatabaseHandler();
+		super.init();
 		dropDownGehaltsklasse.getItems().addAll(dbHandler.ladeGehaltsklassen());
 	}
 

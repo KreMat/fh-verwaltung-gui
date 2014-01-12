@@ -17,12 +17,12 @@ public class MainController {
 	private static final String FILENAME_ADD_TEMPLATE = "AddTemplate.fxml";
 	private static final String FILENAME_ADD_SEMESTER = "AddSemester.fxml";
 	private static final String FILENAME_ADD_LV = "AddLV.fxml";
-	private static final String FILENAME_STUNDEN_EINTRAGEN = null;
-	private static final String FILENAME_NOTEN_EINTRAGEN = null;
-	private static final String FILENAME_ZEUGNIS_GENERIEREN = null;
-	private static final String FILENAME_STUDENPLAN_ANZEIGEN = null;
-	private static final String FILENAME_ANWESENHEITSLISTE_ANZEIGEN = null;
-	private static final String FILENAME_FREIFACH = null;
+	private static final String FILENAME_STUNDEN_EINTRAGEN = "AddLesson.fxml";
+	private static final String FILENAME_NOTEN_EINTRAGEN = "AddGrades.fxml";
+	private static final String FILENAME_ZEUGNIS_GENERIEREN = "GenerateCertificate.fxml";
+	private static final String FILENAME_STUDENPLAN_ANZEIGEN = "GenerateStundenplan.fxml";
+	private static final String FILENAME_ANWESENHEITSLISTE_ANZEIGEN = "GenerateAnwesenheitsliste.fxml";
+	private static final String FILENAME_FREIFACH = "AssignFreifach.fxml";
 
 	@FXML
 	private VBox mainContent;

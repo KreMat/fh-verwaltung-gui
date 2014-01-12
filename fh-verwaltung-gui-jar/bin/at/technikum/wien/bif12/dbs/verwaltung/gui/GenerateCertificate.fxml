@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="at.technikum.wien.bif12.dbs.verwaltung.controller.CertificateController">
+	<children>
+		<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<Label text="Semester" />
+				<TextField fx:id="txtSemester">
+					<HBox.margin>
+						<Insets left="100.0" />
+					</HBox.margin>
+				</TextField>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+			<VBox.margin>
+				<Insets left="20.0" />
+			</VBox.margin>
+		</HBox>
+		<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<Label text="Student wählen" />
+				<ComboBox fx:id="dropDownStudent" prefWidth="150.0">
+					<HBox.margin>
+						<Insets left="65.0" />
+					</HBox.margin>
+				</ComboBox>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+			<VBox.margin>
+				<Insets left="20.0" />
+			</VBox.margin>
+		</HBox>
+		<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<Button fx:id="btnGenerate" mnemonicParsing="false"
+					onAction="#onClickGenerate" text="Generieren">
+					<HBox.margin>
+						<Insets left="170.0" />
+					</HBox.margin>
+				</Button>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+		</HBox>
+		<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+			<children>
+				<Label fx:id="labelName" visible="false" />
+				<Label fx:id="labelStudiengang" visible="false"
+					xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+					<HBox.margin>
+						<Insets left="50.0" />
+					</HBox.margin>
+				</Label>
+			</children>
+			<padding>
+				<Insets top="10.0" />
+			</padding>
+			<VBox.margin>
+				<Insets left="20.0" top="50.0" />
+			</VBox.margin>
+		</HBox>
+		<TableView fx:id="tableView" prefHeight="300.0" prefWidth="400.0"
+			xmlns:fx="http://javafx.com/fxml">
+			<columns>
+				<TableColumn fx:id="lVColumn" prefWidth="200"
+					text="Lehrveranstaltung" />
+				<TableColumn fx:id="eCTSColumn" prefWidth="200" text="ECTS" />
+				<TableColumn fx:id="gradeColumn" prefWidth="70" text="Note"
+					xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+			</columns>
+			<VBox.margin>
+				<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+			</VBox.margin>
+		</TableView>
+	</children>
+</VBox>
